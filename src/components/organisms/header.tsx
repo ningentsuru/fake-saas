@@ -41,14 +41,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center px-6">
+        <Link href="/" className="flex items-center ml-6">
           <Atom />
           <span className="font-bold inline-block">Fake-SaaS</span>
         </Link>
 
         <Navigations items={navigation} />
 
-        <div className="flex items-center px-6 md:hidden">
+        <div className="flex items-center mr-3 md:hidden">
           <ThemeToggle className="cursor-pointer" />
           <Button
             className="md:hidden"
@@ -63,6 +63,10 @@ export default function Header() {
       {isMobileMenuOpen && (
         <MobileNavigations
           items={navigation.filter((item) => item.href !== "/login")}
+          onToggleMobile={() => {
+            // 1. Changed to camelCase
+            toggleMobileNavigation();
+          }}
         />
       )}
     </header>
