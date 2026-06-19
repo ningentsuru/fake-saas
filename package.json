@@ -5,14 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "dev:desktop": "tauri dev",
-    "dev:mobile": "npm run build:web && npx cap sync",
-    "build:desktop": "tauri build",
-    "build:mobile": "npm run build:web && npx cap sync",
-    "open:android": "npx cap open android",
-    "open:ios": "npx cap open ios",
     "start": "npx serve@latest out",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dev:desktop": "tauri dev",
+    "build:desktop": "tauri build",
+    "build:mobile": "npm run build && npx cap sync",
+    "open:android": "npx cap open android",
+    "open:ios": "npx cap open ios"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
