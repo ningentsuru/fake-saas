@@ -3,8 +3,6 @@
 import Link from "next/link";
 import ThemeToggle from "@/components/molecules/theme-toggle";
 
-import { useState } from "react";
-
 interface Navigation {
   label: string;
   href: string;
@@ -21,7 +19,7 @@ export default function Navigations({ items }: NavigationsProps) {
           {item.label}
         </Link>
       ))}
-      <ThemeToggle className="cursor-pointer" />
+      <ThemeToggle />
     </nav>
   );
 }

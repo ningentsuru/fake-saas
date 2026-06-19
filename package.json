@@ -5,11 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "dev:desktop": "tauri dev",
+    "dev:mobile": "npm run build:web && npx cap sync",
+    "build:desktop": "tauri build",
+    "build:mobile": "npm run build:web && npx cap sync",
+    "open:android": "npx cap open android",
+    "open:ios": "npx cap open ios",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -33,11 +43,13 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.1",
-    "@types/node": "^25.9.3",
+    "@tauri-apps/cli": "^2.11.2",
+    "@types/node": "^26.0.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^10.5.0",
+    "eslint": "^9.39.4",
     "eslint-config-next": "16.2.9",
+    "eslint-plugin-react": "^7.37.5",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3"
   }

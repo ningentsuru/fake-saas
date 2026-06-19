@@ -8,3 +8,8 @@ minimumReleaseAgeExclude:
   - '@base-ui/react@1.6.0'
   - '@base-ui/utils@0.3.1'
   - lucide-react@1.21.0
+  - '@capacitor/android@8.4.1'
+  - '@capacitor/cli@8.4.1'
+  - '@capacitor/core@8.4.1'
+  - '@capacitor/ios@8.4.1'
+  - '@types/node@26.0.0'

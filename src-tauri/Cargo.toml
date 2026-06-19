@@ -1,0 +1,23 @@
+[package]
+name = "ningentsuru"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Fake SaaS POS Desktop App"
+authors = ["Joshua Alexis Natividad Sardido"]
+license = ""
+repository = ""
+
+[lib]
+name = "fake_saas_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.2", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.11.2", features = [] }
+tauri-plugin-log = "2"

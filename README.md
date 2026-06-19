@@ -167,3 +167,24 @@ src/
 4. API Structure:
    - Keep your API routes modular under `src/app/api`.
    - The `webhook` route is essential for simulating Stripe events (e.g., automatically upgrading a tenant when a payment succeeds).
+
+## @Capacitor Mobile Apps
+
+To build mobile apps
+
+```
+npx cap add android
+npx cap add ios
+```
+
+```
+npm run build
+npx cap sync
+```
+```
+npx cap open android
+npx cap open ios   
+```
+
+## Tauri Desktop App
+
