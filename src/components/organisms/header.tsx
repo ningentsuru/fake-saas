@@ -48,12 +48,14 @@ export default function Header() {
 
         <Navigations items={navigation} />
 
-        <div className="flex items-center mr-3 md:hidden">
+        <div className="flex items-center space-x-2 mr-3 md:hidden">
           <ThemeToggle />
           <Button
-            className="md:hidden"
-            onClick={toggleMobileNavigation}
+            className="md:hiddencursor-pointer p-0"
             aria-label="Toggle menu"
+            variant="link"
+            onClick={toggleMobileNavigation}
+            asChild
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
           </Button>

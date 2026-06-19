@@ -1,19 +1,15 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, SunMoon } from "lucide-react";
+import { useIsClient } from "@/hooks/use-is-client";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const isClient = useIsClient();
 
-  // TODO: To fix
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return <SunMoon />;
+  if (!isClient) return <SunMoon />;
 
   function toggle() {
     setTheme(theme === "dark" ? "light" : "dark");
