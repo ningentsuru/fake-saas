@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { Atom, Menu, X } from "lucide-react";
 
-import { Button } from "@/components/atoms/button";
+import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/molecules/theme-toggle";
 import Navigations from "@/components/organisms/navigations";
 import MobileNavigations from "@/components/organisms/mobile-navigations";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [navigation, setNavigation] = useState([
+  const navigation = [
     {
       label: "Dashboard",
       href: "/dashboard",
@@ -32,7 +32,7 @@ export default function Header() {
       label: "Login & Signup",
       href: "/login",
     },
-  ]);
+  ];
 
   function toggleMobileNavigation() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -49,7 +49,7 @@ export default function Header() {
         <Navigations items={navigation} />
 
         <div className="flex items-center mr-3 md:hidden">
-          <ThemeToggle className="cursor-pointer" />
+          <ThemeToggle />
           <Button
             className="md:hidden"
             onClick={toggleMobileNavigation}

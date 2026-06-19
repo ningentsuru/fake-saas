@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "@/components/atoms/button";
-import { Label } from "@/components/atoms/label";
-import { Input } from "@/components/atoms/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import {
   Card,
   CardAction,
@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/organisms/card";
+} from "@/components/ui/card";
 
 export default function Home() {
   return (

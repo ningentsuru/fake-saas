@@ -2,14 +2,10 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/atoms/button";
+import { Button } from "@/components/ui/button";
 import { Moon, Sun, SunMoon } from "lucide-react";
 
-interface ThemeToggleProps {
-  className?: string;
-}
-
-export default function ThemeToggle({ className }: ThemeToggleProps) {
+export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -22,7 +18,12 @@ export default function ThemeToggle({ className }: ThemeToggleProps) {
   }
 
   return (
-    <Button className={className} onClick={toggle}>
+    <Button
+      className="cursor-pointer p-0"
+      variant="link"
+      onClick={toggle}
+      asChild
+    >
       {theme === "dark" ? <Moon /> : <Sun />}
     </Button>
   );
