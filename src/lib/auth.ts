@@ -4,6 +4,10 @@ export interface AuthUser {
   id: string;
   email: string;
   name: string;
+  user_metadata?: {
+    name: string;
+    full_name: string;
+  };
 }
 
 export interface UserSession {
@@ -51,13 +55,16 @@ export async function signUp({
   const user: AuthUser = {
     id: s.user.id,
     email: s.user.email || "",
-    name:
-      (s.user.user_metadata as any)?.name ||
-      (s.user.user_metadata as any)?.full_name ||
-      "",
+    name: s.user.user_metadata?.name || s.user.user_metadata?.full_name || "",
+    user_metadata: (s.user.user_metadata || { name: "", full_name: "" }) as {
+      name: string;
+      full_name: string;
+    },
   };
 
-  const expiresAt = s.expires_at ? s.expires_at * 1000 : Date.now() + 1000 * 60 * 60 * 24 * 7;
+  const expiresAt = s.expires_at
+    ? s.expires_at * 1000
+    : Date.now() + 1000 * 60 * 60 * 24 * 7;
   return { success: true, session: { user, expiresAt } };
 }
 
@@ -67,7 +74,9 @@ export async function signIn({
 }: {
   email: string;
   password: string;
-}): Promise<{ success: true; session: UserSession } | { success: false; error: string }> {
+}): Promise<
+  { success: true; session: UserSession } | { success: false; error: string }
+> {
   if (!supabase) {
     return { success: false, error: "Supabase is not configured." };
   }
@@ -82,10 +91,16 @@ export async function signIn({
   const user: AuthUser = {
     id: s.user.id,
     email: s.user.email || "",
-    name: (s.user.user_metadata as any)?.name || (s.user.user_metadata as any)?.full_name || "",
+    name: s.user.user_metadata?.name || s.user.user_metadata?.full_name || "",
+    user_metadata: (s.user.user_metadata || { name: "", full_name: "" }) as {
+      name: string;
+      full_name: string;
+    },
   };
 
-  const expiresAt = s.expires_at ? s.expires_at * 1000 : Date.now() + 1000 * 60 * 60 * 24 * 7;
+  const expiresAt = s.expires_at
+    ? s.expires_at * 1000
+    : Date.now() + 1000 * 60 * 60 * 24 * 7;
 
   return { success: true, session: { user, expiresAt } };
 }
@@ -104,7 +119,11 @@ export async function getSession(): Promise<UserSession | null> {
   const user: AuthUser = {
     id: s.user.id,
     email: s.user.email || "",
-    name: (s.user.user_metadata as any)?.name || (s.user.user_metadata as any)?.full_name || "",
+    name: s.user.user_metadata?.name || s.user.user_metadata?.full_name || "",
+    user_metadata: (s.user.user_metadata || { name: "", full_name: "" }) as {
+      name: string;
+      full_name: string;
+    },
   };
 
   const expiresAt = s.expires_at ? s.expires_at * 1000 : Date.now();
