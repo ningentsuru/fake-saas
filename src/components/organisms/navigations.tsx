@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ThemeToggle from "@/components/molecules/theme-toggle";
+import SignOutButton from "../molecules/sign-out-button";
 
 interface Navigation {
   label: string;
@@ -19,6 +20,7 @@ export default function Navigations({ items }: NavigationsProps) {
           {item.label}
         </Link>
       ))}
+      <SignOutButton variant="ghost" className="px-0 cursor-pointer" />
       <ThemeToggle />
     </nav>
   );

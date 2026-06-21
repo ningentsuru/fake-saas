@@ -28,10 +28,6 @@ export default function Header() {
       label: "Price Check",
       href: "/price-check",
     },
-    {
-      label: "Login & Signup",
-      href: "/login",
-    },
   ];
 
   function toggleMobileNavigation() {
@@ -39,8 +35,8 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <div className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background">
+      <div className="flex h-(--header-height) items-center justify-between">
         <Link href="/" className="flex items-center ml-6">
           <Atom />
           <span className="font-bold inline-block">Fake-SaaS</span>

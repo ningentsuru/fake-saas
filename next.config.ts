@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
 
-  // Disable server-side features that won't work in a static bundle
   trailingSlash: true,
 
   // CRITICAL FOR TAURI:

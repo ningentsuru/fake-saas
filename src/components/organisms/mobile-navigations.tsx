@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import SignOutButton from "../molecules/sign-out-button";
 
 interface Navigation {
   label: string;
@@ -33,13 +34,7 @@ export default function MobileNavigations({
         ))}
       </nav>
       <div className="flex justify-end py-4 border-t">
-        <Link
-          className="px-6 block py-2"
-          href="/login"
-          onClick={() => onToggleMobile?.()}
-        >
-          Login & Signup
-        </Link>
+        <SignOutButton variant="ghost" className="px-6 py-2 cursor-pointer" />
       </div>
     </div>
   );

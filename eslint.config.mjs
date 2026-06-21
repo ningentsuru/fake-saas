@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "src-tauri/**",
+    "src/components/ui",
+    "src/hooks/use-mobile.ts"
   ]),
 ]);
 
